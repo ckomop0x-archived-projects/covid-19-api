@@ -1,0 +1,46 @@
+{
+  "name": "covid-19-api",
+  "version": "1.0.0",
+  "description": "Api for COVID-19 data",
+  "private": true,
+  "main": "server.js",
+  "scripts": {
+    "start": "node ./server.js",
+    "dev": "nodemon ./server.js --exec babel-node -e js --ignore feedback.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ckomop0x/covid-19-api.git"
+  },
+  "keywords": [
+    "covid19",
+    "api"
+  ],
+  "author": "ckomop0x",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ckomop0x/covid-19-api/issues"
+  },
+  "homepage": "https://github.com/ckomop0x/covid-19-api#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-prettier": "^3.1.2",
+    "nodemon": "^2.0.2",
+    "prettier": "^2.0.2"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "csvtojson": "^2.0.10",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "got": "^10.7.0"
+  }
+}
