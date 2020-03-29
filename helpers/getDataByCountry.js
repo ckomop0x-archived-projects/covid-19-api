@@ -26,8 +26,6 @@ const getDataByCountry = async country => {
       deathItem['Province/State'].toLowerCase() === ''
   );
 
-  console.log(Object.entries(confirmedByCountry[0]))
-
   return {
     country,
     confirmed: Object.entries(confirmedByCountry[0]).slice(4) || [],
