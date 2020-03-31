@@ -7,30 +7,22 @@ const recoveredGlobal =
   'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_recovered_global.csv';
 
 const getDataByCountry = async country => {
-  const confirmed = await getData(confirmedGlobal);
-  const death = await getData(deathGlobal);
-  const recovered = await getData(recoveredGlobal);
-  const confirmedByCountry = confirmed.filter(
-    confirmedItem =>
-      confirmedItem['Country/Region'].toLowerCase() === country.toLowerCase() &&
-      confirmedItem['Province/State'].toLowerCase() === ''
-  );
-  const recoveredByCountry = recovered.filter(
-    recoveredItem =>
-      recoveredItem['Country/Region'].toLowerCase() === country.toLowerCase() &&
-      recoveredItem['Province/State'].toLowerCase() === ''
-  );
-  const deathByCountry = death.filter(
-    deathItem =>
-      deathItem['Country/Region'].toLowerCase() === country.toLowerCase() &&
-      deathItem['Province/State'].toLowerCase() === ''
-  );
+  const globalData = await Promise.all([getData(confirmedGlobal), getData(deathGlobal), getData(recoveredGlobal)]);
+  const filterDataByCountry = (data, country) => (
+    data.filter(
+      dataItem =>
+        dataItem['Country/Region'].toLowerCase() === country.toLowerCase() &&
+        dataItem['Province/State'].toLowerCase() === ''
+  ));
+  const confirmed = Object.entries(filterDataByCountry(globalData[0], country)[0]).slice(4) || [];
+  const death = Object.entries(filterDataByCountry(globalData[1], country)[0]).slice(4);
+  const recovered = Object.entries(filterDataByCountry(globalData[2], country)[0]).slice(4);
 
   return {
     country,
-    confirmed: Object.entries(confirmedByCountry[0]).slice(4) || [],
-    death: Object.entries(deathByCountry[0]).slice(4) || [],
-    recovered: Object.entries(recoveredByCountry[0]).slice(4) || [],
+    confirmed,
+    death,
+    recovered,
   };
 };
 

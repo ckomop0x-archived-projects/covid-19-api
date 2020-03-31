@@ -7,9 +7,11 @@ const recoveredGlobal =
   'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_recovered_global.csv';
 
 const getAllGlobalData = async () => {
-  const confirmed = await getData(confirmedGlobal);
-  const death = await getData(deathGlobal);
-  const recovered = await getData(recoveredGlobal);
+  const [confirmed, death, recovered] = await Promise.all([
+    getData(confirmedGlobal),
+    getData(deathGlobal),
+    getData(recoveredGlobal),
+  ]);
 
   return {
     confirmed,
