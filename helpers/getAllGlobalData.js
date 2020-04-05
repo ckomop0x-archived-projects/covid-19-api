@@ -1,10 +1,10 @@
 import getData from './getData';
-import {confirmedGlobal, deathGlobal, recoveredGlobal} from "./dataUrls";
+import {confirmedGlobal, deathsGlobal, recoveredGlobal} from "./dataUrls";
 
 const getAllGlobalData = async () => {
   const [confirmed, death, recovered] = await Promise.all([
     getData(confirmedGlobal),
-    getData(deathGlobal),
+    getData(deathsGlobal),
     getData(recoveredGlobal),
   ]);
 
