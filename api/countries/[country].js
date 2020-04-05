@@ -11,7 +11,7 @@ const countryPage = async (req, res) => {
     if (dataByCountry.dates && dataByCountry.dates[0]) {
       res.setHeader("Access-Control-Allow-Origin", '*');
       res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-      res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+      res.setHeader("Access-Control-Allow-Methods", "GET, OPTIONS");
       return res.json(dataByCountry);
     }
     res.status(500);
