@@ -1,6 +1,6 @@
 import { getDataByCountry } from '../../helpers';
 
-const countryPage = async (req, res) => {
+const countryPage = async (req: any, res: any) => {
   const error = {
     error: { message: `No data found for ${req.query.country}` },
   };

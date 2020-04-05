@@ -1,12 +1,13 @@
+// @ts-ignore
 import csvParse from 'csvtojson';
 import got from 'got';
 
-const getData = async (url) => {
-  const getConfirmed = async () => {
+const getData = async (url: string) => {
+  const getDataFromUrl = async () => {
     const response = await got(url);
-    return await response.body;
+    return response.body;
   };
-  const data = await getConfirmed();
+  const data = await getDataFromUrl();
 
   return await csvParse()
     .fromString(data)
