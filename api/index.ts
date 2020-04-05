@@ -1,6 +1,6 @@
 import { getAllGlobalData } from '../helpers';
 
-const apiPage = async (req, res) => {
+const apiPage = async (req: any, res: any) => {
   const allGlobalData = await getAllGlobalData();
   res.setHeader("Access-Control-Allow-Origin", '*');
   res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
