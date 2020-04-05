@@ -17,22 +17,22 @@ const getDataByCountry = async (country: string | undefined) => {
   const confirmedByCountry = filterDataByCountry(globalData[0], country);
   const deathsByCountry = filterDataByCountry(globalData[1], country);
   const recoveredByCountry = filterDataByCountry(globalData[2], country);
-  const countryFromData = confirmedByCountry && confirmedByCountry[0]['Country/Region'];
+  const countryFromData = confirmedByCountry && confirmedByCountry[0] && confirmedByCountry[0]['Country/Region'] || '';
 
-  confirmedByCountry && Object.entries(confirmedByCountry[0])
+  confirmedByCountry && confirmedByCountry[0] && Object.entries(confirmedByCountry[0])
     .slice(4)
     .forEach(dataEntry => {
       dates.push(dataEntry[0]);
       confirmed.push(Number(dataEntry[1]));
     });
 
-  deathsByCountry && Object.entries(deathsByCountry[0])
+  deathsByCountry && deathsByCountry[0] && Object.entries(deathsByCountry[0])
     .slice(4)
     .forEach(dataEntry => {
       deaths.push(Number(dataEntry[1]));
     });
 
-  recoveredByCountry && Object.entries(recoveredByCountry[0])
+  recoveredByCountry && recoveredByCountry[0] && Object.entries(recoveredByCountry[0])
     .slice(4)
     .forEach(dataEntry => {
       recovered.push(Number(dataEntry[1]));

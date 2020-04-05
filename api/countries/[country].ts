@@ -1,18 +1,18 @@
 import { getDataByCountry } from '../../helpers';
 
 const countryPage = async (req: any, res: any) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader(
+      'Access-Control-Allow-Headers',
+      'Origin, X-Requested-With, Content-Type, Accept'
+  );
+  res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
   const error = {
     error: { message: `No data found for ${req.query.country}` },
   };
 
   if (req.query && req.query.country) {
     const dataByCountry = await getDataByCountry(req.query.country);
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader(
-      'Access-Control-Allow-Headers',
-      'Origin, X-Requested-With, Content-Type, Accept'
-    );
-    res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
 
     if (dataByCountry.dates && dataByCountry.dates[0]) {
       return res.json(dataByCountry);
