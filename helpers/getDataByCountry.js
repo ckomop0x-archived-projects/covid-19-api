@@ -1,19 +1,18 @@
 import getData from './getData';
 import { confirmedGlobal, deathsGlobal, recoveredGlobal } from './dataUrls';
 import filterDataByCountry from './filterDataByCountry';
-import {CountryData} from "./types";
 
-const getDataByCountry = async (country: string | undefined) => {
-  const globalData: CountryData[][] = await Promise.all([
+const getDataByCountry = async (country) => {
+  const globalData = await Promise.all([
     getData(confirmedGlobal),
     getData(deathsGlobal),
     getData(recoveredGlobal),
   ]);
 
-  const dates: string[] = [];
-  const confirmed: number[] = [];
-  const deaths: number[] = [];
-  const recovered: number[] = [];
+  const dates = [];
+  const confirmed = [];
+  const deaths = [];
+  const recovered = [];
   const confirmedByCountry = filterDataByCountry(globalData[0], country);
   const deathsByCountry = filterDataByCountry(globalData[1], country);
   const recoveredByCountry = filterDataByCountry(globalData[2], country);
@@ -47,4 +46,4 @@ const getDataByCountry = async (country: string | undefined) => {
   };
 };
 
-export default getDataByCountry;
+export default getDataByCountry

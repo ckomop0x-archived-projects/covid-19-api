@@ -1,5 +1,5 @@
 import getData from './getData';
-import {confirmedGlobal, deathsGlobal, recoveredGlobal} from "./dataUrls";
+import { confirmedGlobal, deathsGlobal, recoveredGlobal } from './dataUrls';
 
 const getAllGlobalData = async () => {
   const [confirmed, death, recovered] = await Promise.all([
@@ -15,4 +15,4 @@ const getAllGlobalData = async () => {
   };
 };
 
-export default getAllGlobalData;
+export default getAllGlobalData
