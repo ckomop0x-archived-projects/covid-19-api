@@ -3,7 +3,7 @@ import { confirmedGlobal, deathsGlobal, recoveredGlobal } from './dataUrls';
 import filterDataByCountry from './filterDataByCountry';
 import {CountryData} from "./types";
 
-const getDataByCountry = async (country: string | undefined) => {
+export const getDataByCountry = async (country: string | undefined) => {
   const globalData: CountryData[][] = await Promise.all([
     getData(confirmedGlobal),
     getData(deathsGlobal),
@@ -47,4 +47,3 @@ const getDataByCountry = async (country: string | undefined) => {
   };
 };
 
-export default getDataByCountry;
