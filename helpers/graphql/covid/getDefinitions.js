@@ -8,7 +8,7 @@ export const { nodeInterface, nodeField } = nodeDefinitions(
     return getObjectById(type.toLowerCase(), id)
   },
   (object) => {
-    if (object.title) {
+    if (object.name) {
       return countryType;
     }
 

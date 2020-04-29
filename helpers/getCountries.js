@@ -16,7 +16,7 @@ export const getCountries = async () => {
   uniqueCountries.forEach(uniqueCountry => {
     countries.push({
       id: uniqueCountry,
-      title: uniqueCountry,
+      name: uniqueCountry,
       totalConfirmed: getCountryTotalData(allData.confirmed, uniqueCountry),
       totalDeaths: getCountryTotalData(allData.death, uniqueCountry),
       totalRecovered: getCountryTotalData(allData.recovered, uniqueCountry),

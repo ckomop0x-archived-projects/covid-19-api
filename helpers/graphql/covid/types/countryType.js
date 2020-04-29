@@ -7,7 +7,7 @@ export const countryType = new GraphQLObjectType({
   description: 'Country with Covid-19 cases.',
   fields: {
     id: globalIdField(),
-    title: {
+    name: {
       type: GraphQLString,
       description: 'The name of the country',
     },
