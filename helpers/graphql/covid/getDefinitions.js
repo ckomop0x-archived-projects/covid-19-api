@@ -1,6 +1,6 @@
 import { getObjectById } from "./getObjectById";
 import { fromGlobalId, nodeDefinitions } from "graphql-relay";
-import { countryType } from "./types/countryType";
+import { countryType } from "../../../types/countryType";
 
 export const { nodeInterface, nodeField } = nodeDefinitions(
   (globalId) => {

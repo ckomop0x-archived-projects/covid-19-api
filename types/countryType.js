@@ -1,6 +1,6 @@
 import { GraphQLInt, GraphQLObjectType, GraphQLString } from "graphql";
 import { globalIdField } from 'graphql-relay';
-import { nodeInterface } from '../getDefinitions';
+import { nodeInterface } from '../helpers/graphql/covid/getDefinitions';
 
 export const countryType = new GraphQLObjectType({
   name: 'Country',
