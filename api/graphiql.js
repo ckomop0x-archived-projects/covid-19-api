@@ -8,7 +8,7 @@ const {
 import {
   // mutationType,
   queryType
-} from "../helpers/graphql/covid/types";
+} from "../types";
 
 const schema = new GraphQLSchema({
   query: queryType,
