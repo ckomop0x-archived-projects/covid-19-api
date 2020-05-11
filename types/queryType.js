@@ -38,10 +38,7 @@ export const queryType = new GraphQLObjectType({
         },
       },
       resolve: async (_, args) => {
-        console.log(args.name)
         const country = await getCountryByName(args.name)
-        console.log(country)
-
         return country;
       },
     },

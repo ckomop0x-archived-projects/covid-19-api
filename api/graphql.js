@@ -4,7 +4,6 @@ const graphqlHTTP = require('express-graphql');
 const { GraphQLSchema } = require('graphql');
 
 import {
-  // mutationType,
   queryType,
 } from '../types';
 
