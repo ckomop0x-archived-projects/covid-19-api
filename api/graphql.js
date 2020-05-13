@@ -3,9 +3,7 @@ const app = express();
 const graphqlHTTP = require('express-graphql');
 const { GraphQLSchema } = require('graphql');
 
-import {
-  queryType,
-} from '../types';
+import { queryType } from '../../types';
 
 const schema = new GraphQLSchema({
   query: queryType,
