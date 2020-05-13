@@ -1,19 +1,19 @@
-const express = require('express');
+import express from 'express';
+import { queryType } from '../../types';
+
 const app = express();
 const graphqlHTTP = require('express-graphql');
 const { GraphQLSchema } = require('graphql');
-
-import { queryType } from '../../types';
 
 const schema = new GraphQLSchema({
   query: queryType,
 });
 
 app.use(
-  '/api/graphql',
+  '/api/graphiql/',
   graphqlHTTP({
     schema,
-    graphiql: false,
+    graphiql: true,
   })
 );
 

@@ -1,4 +1,4 @@
-import { getAllGlobalData } from '../helpers';
+import { getAllGlobalData } from '../../helpers';
 
 const apiPage = async (req, res) => {
   const allGlobalData = await getAllGlobalData();
@@ -12,3 +12,7 @@ const apiPage = async (req, res) => {
 };
 
 export default apiPage;
+
+// export default (req, res) => {
+//   res.status(200).json({ text: 'Hello' });
+// };
