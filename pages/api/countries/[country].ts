@@ -1,6 +1,7 @@
 import { getDataByCountry } from '../../../helpers';
+import { NextApiRequest, NextApiResponse } from 'next';
 
-const countryPage = async (req, res) => {
+const countryPage = async (req: NextApiRequest, res: NextApiResponse) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader(
     'Access-Control-Allow-Headers',

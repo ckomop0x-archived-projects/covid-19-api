@@ -8,10 +8,10 @@ const getData = async url => {
   };
   const data = await getDataFromUrl();
 
-  return await csvParse()
+  return csvParse()
     .fromString(data)
-    .then(function (jsonArrayObj) {
-      //when parse finished, result will be emitted here.
+    .then(jsonArrayObj => {
+      // when parse finished, result will be emitted here.
       return jsonArrayObj;
     });
 };

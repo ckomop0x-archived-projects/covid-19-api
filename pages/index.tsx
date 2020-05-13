@@ -4,17 +4,18 @@ import { getSortedPostsData } from '../lib/posts';
 import utilStyles from '../styles/utils.module.css';
 import Link from 'next/link';
 import Date from '../components/Date';
+import { GetStaticProps } from 'next';
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const allPostsData = getSortedPostsData();
   return {
     props: {
       allPostsData,
     },
   };
-}
+};
 
-export default function Home({ allPostsData }) {
+const HomePage: React.FC = ({ allPostsData }: any) => {
   return (
     <Layout home>
       <Head>
@@ -25,10 +26,6 @@ export default function Home({ allPostsData }) {
           Hi, I'm Pavel. I'm a software engineer and musician. I like to travel
           and share experience about my travels. You can find me everywhere with
           nickname <b>ckomop0x</b>.
-        </p>
-        <p>
-          (This is a sample website - you’ll be building a site like this on{' '}
-          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
         </p>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
@@ -49,4 +46,6 @@ export default function Home({ allPostsData }) {
       </section>
     </Layout>
   );
-}
+};
+
+export default HomePage;

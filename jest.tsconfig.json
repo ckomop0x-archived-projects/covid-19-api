@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "esnext",
+    "jsx": "react",
+    "sourceMap": false,
+    "experimentalDecorators": true,
+    "noImplicitUseStrict": true,
+    "removeComments": true,
+    "isolatedModules": false,
+    "moduleResolution": "node",
+    "lib": ["es2017", "dom", "node"],
+    "typeRoots": ["node_modules/@types"]
+  },
+  "exclude": ["node_modules", "out", ".next"]
+}

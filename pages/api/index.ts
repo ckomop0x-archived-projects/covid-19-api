@@ -1,6 +1,7 @@
 import { getAllGlobalData } from '../../helpers';
+import { NextApiResponse, NextApiRequest } from 'next';
 
-const apiPage = async (req, res) => {
+const apiPage = async (req: NextApiRequest, res: NextApiResponse) => {
   const allGlobalData = await getAllGlobalData();
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader(
@@ -12,7 +13,3 @@ const apiPage = async (req, res) => {
 };
 
 export default apiPage;
-
-// export default (req, res) => {
-//   res.status(200).json({ text: 'Hello' });
-// };
