@@ -1,4 +1,4 @@
-export const filterDataByCountry = (data, country = '') =>
+const filterDataByCountry = (data, country = '') =>
   data.filter(
     dataItem =>
       dataItem['Country/Region'].toLowerCase() === country.toLowerCase() &&

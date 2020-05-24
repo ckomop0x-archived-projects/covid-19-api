@@ -1,10 +1,20 @@
-import Layout from '../../components/Layout';
-import Date from '../../components/Date';
+import { Layout, Date } from '../../components';
 import { getAllPostIds, getPostData } from '../../lib/posts';
 import Head from 'next/head';
 import utilStyles from '../../styles/utils.module.css';
+import { GetStaticPaths, GetStaticProps } from 'next';
 
-export default function Post({ postData }) {
+interface PostData {
+  title: string;
+  date: string;
+  contentHtml: string;
+}
+
+interface IPostProps {
+  postData: PostData;
+}
+
+const Post: React.FC<IPostProps> = ({ postData }) => {
   return (
     <Layout>
       <Head>
@@ -19,20 +29,17 @@ export default function Post({ postData }) {
       </article>
     </Layout>
   );
-}
+};
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const paths = getAllPostIds();
-
-  console.log(paths);
 
   return {
     paths,
     fallback: false,
   };
-}
-
-export async function getStaticProps({ params }) {
+};
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   // Fetch necessary data for the blog post using params.id
   const postData = await getPostData(params.id);
   return {
@@ -40,4 +47,6 @@ export async function getStaticProps({ params }) {
       postData,
     },
   };
-}
+};
+
+export default Post;
