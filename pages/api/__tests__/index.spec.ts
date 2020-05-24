@@ -1,4 +1,4 @@
-import apiPage from '../api/index';
+import apiPage from '../index';
 
 describe('Main API', () => {
   it('should have a default function', () => {
