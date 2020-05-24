@@ -1,5 +1,4 @@
-// import getAllGlobalData from '../../getAllGlobalData';
-import { getCountries as countries } from "../../getCountries";
+import { getCountries as countries } from '../../getCountries';
 
 export const getCountries = async () => {
   const countriesList = await countries();
