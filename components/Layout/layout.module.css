@@ -11,13 +11,15 @@
 }
 
 .headerImage {
-  width: 6rem;
-  height: 6rem;
+  max-width: 6rem;
+  /* height: 6rem; */
 }
 
 .headerHomeImage {
-  width: 8rem;
-  height: 8rem;
+  width: 28rem;
+  max-width: 100%;
+  height: auto;
+  /* height: 8rem; */
 }
 
 .backToHome {

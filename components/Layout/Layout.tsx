@@ -3,8 +3,8 @@ import utilStyles from '../../styles/utils.module.css';
 import Link from 'next/link';
 import Head from 'next/head';
 
-const name = 'Pavel Klochkov';
-export const siteTitle = 'Next.js Sample Website';
+const name = 'COVID-19 APIs';
+export const siteTitle = 'COVID-19 REST and GraphQL APIs by Pavel Klochko';
 
 export default function Layout({
   children,
@@ -34,7 +34,7 @@ export default function Layout({
         {home ? (
           <>
             <img
-              src="/images/profile.jpg"
+              src="https://wearecovert.com/wp-content/uploads/2020/04/coid-1-1280x720.jpg"
               className={`${styles.headerHomeImage} ${utilStyles.borderCircle}`}
               alt={name}
             />
@@ -45,7 +45,7 @@ export default function Layout({
             <Link href="/">
               <a>
                 <img
-                  src="/images/profile.jpg"
+                  src="https://wearecovert.com/wp-content/uploads/2020/04/coid-1-1280x720.jpg"
                   className={`${styles.headerImage} ${utilStyles.borderCircle}`}
                   alt={name}
                 />
