@@ -1,10 +1,13 @@
 import Head from 'next/head';
+import { GetStaticProps } from 'next';
+import dynamic from 'next/dynamic';
+import SwaggerUI from 'swagger-ui-react';
+
 import Layout, { siteTitle } from '../components/Layout';
 import { getSortedPostsData } from '../lib/posts';
 import utilStyles from '../styles/utils.module.css';
 import Link from 'next/link';
 import Date from '../components/Date';
-import { GetStaticProps } from 'next';
 
 export const getStaticProps: GetStaticProps = async () => {
   const allPostsData = getSortedPostsData();
@@ -14,6 +17,10 @@ export const getStaticProps: GetStaticProps = async () => {
     },
   };
 };
+
+const Swagger = dynamic(() => import('swagger-ui-react'), {
+  ssr: false,
+});
 
 const HomePage: React.FC = ({ allPostsData }: any) => {
   return (
@@ -28,15 +35,24 @@ const HomePage: React.FC = ({ allPostsData }: any) => {
           <Link href="/api/graphql">
             <a>api</a>
           </Link>
-          , <Link href="/api/graphiql">playground</Link>
+          ,{' '}
+          <Link href="/api/graphiql">
+            <a>playground</a>
+          </Link>
           <br />
-          REST <Link href="/api/countries/netherlands">Dutch statistics</Link>
+          REST{' '}
+          <Link href="/api/countries/netherlands">
+            <a>Dutch statistics</a>
+          </Link>
         </p>
         {/* <p>
           Hi, I'm Pavel. I'm a software engineer and musician. I like to travel
           and share experience about my travels. You can find me everywhere with
           nickname <b>ckomop0x</b>.
         </p> */}
+      </section>
+      <section>
+        <Swagger url="openapi/openapi_1_0_0.json" />
       </section>
       {/* <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
