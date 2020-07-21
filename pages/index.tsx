@@ -18,7 +18,7 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-const Swagger = dynamic(() => import('swagger-ui-react'), {
+const Swagger: any = dynamic(() => import('swagger-ui-react'), {
   ssr: false,
 });
 
