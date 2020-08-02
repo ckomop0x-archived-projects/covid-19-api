@@ -7,11 +7,15 @@ describe('Main API', () => {
   it('should return all global from the API', async () => {
     const setHeader = jest.fn();
     const json = jest.fn();
+    const mockFunction = jest.fn();
 
-    const result = await apiPage(() => {}, {
-      setHeader,
-      json,
-    });
+    const result = await apiPage(
+      mockFunction as any,
+      {
+        setHeader,
+        json,
+      } as any
+    );
 
     expect(result).toEqual(undefined);
     expect(setHeader).toBeCalledTimes(3);
