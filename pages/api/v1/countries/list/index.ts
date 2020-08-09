@@ -12,7 +12,7 @@ const countriesList = async (req: NextApiRequest, res: NextApiResponse) => {
     'Origin, X-Requested-With, Content-Type, Accept'
   );
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
-  await res.json({ data: countries });
+  await res.json(countries);
 };
 
 export default countriesList;
