@@ -1,4 +1,4 @@
-import { getCountriesList } from '../../../../helpers/getCountriesList';
+import { getCountriesList } from '../../../helpers/getCountriesList';
 import { NextApiResponse, NextApiRequest } from 'next';
 
 const countriesList = async (

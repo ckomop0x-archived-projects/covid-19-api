@@ -7,6 +7,7 @@ servers:
 - url: https://api-cov19.now.sh/
   description: Covid-19 statistic serverless API
 paths:
+  # All information
   /api:
     get:
       tags:
@@ -14,44 +15,70 @@ paths:
       description: Returns information about all countries
       responses:
         "200":
-          description: A list of countries with all informtion included.
+          description: List is updated.
           content:
             application/json:
               schema:
                 type: array
                 items:
                   $ref: '#/components/schemas/Countries'
-  /api/v1/countries/list/:
+        "304":
+          description: List is unchanged.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Countries'
+  # List of all countries
+  /api/countries/list/:
     get:
       tags:
       - Countries list
       description: List of all countries with COVID-19 cases
       responses:
+        # Updated status code
         "200":
-          description: Default response with array of strings
+          description: List is updated.
           content:
             application/json:
               schema:
                 type: array
                 items:
                   $ref: '#/components/schemas/CountryInfo'
+        # Unchanged status code
+        "304":
+          description: List is unchanged.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CountryInfo'
+        # Error status code
         "500":
           description: Error message.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+
+  # Data for country by name/id
   /api/countries/{country}:
     get:
       tags:
       - Data for country
-      summary: Get a country by name
+      summary: Get a country by name or id
       description: Returns information about country. Pass country name as a parameter.
-        Country name is case insensitive. For example – https://api-cov19.now.sh/api/countries/netherlands
+        Country name is case insensitive.
+        For example
+        https://api-cov19.now.sh/api/countries/netherlands
+        or
+        https://api-cov19.now.sh/api/countries/15
       parameters:
       - name: country
         in: path
-        description: String Name of the country to get
+        description: String Name / Id of the country to get
         required: true
         style: simple
         explode: false
@@ -59,7 +86,13 @@ paths:
           type: string
       responses:
         "200":
-          description: A list of countries with all informtion included.
+          description: Information is unchanged.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Country'
+        "304":
+          description: Information is updated.
           content:
             application/json:
               schema:
