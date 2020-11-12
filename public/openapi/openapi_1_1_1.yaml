@@ -2,7 +2,7 @@ openapi: 3.0.0
 info:
   title: COVID-19 APIs
   description: Here you can find documentation for COVID-19 REST API.
-  version: 1.1.0
+  version: 1.1.1
 servers:
 - url: https://api-cov19.now.sh/
   description: Covid-19 statistic serverless API

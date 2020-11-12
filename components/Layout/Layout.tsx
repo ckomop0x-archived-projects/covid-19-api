@@ -4,16 +4,15 @@ import Link from 'next/link';
 import Head from 'next/head';
 
 const name = 'COVID-19 APIs';
-export const siteTitle = 'COVID-19 REST and GraphQL APIs by Pavel Klochko';
+export const siteTitle = 'COVID-19 REST and GraphQL APIs by Pavel Klochkov';
 
-export default function Layout({
+const Layout = ({
   children,
   home,
 }: {
   children: any;
   home?: boolean;
-}) {
-  return (
+}) => (
     <div className={styles.container}>
       <Head>
         <link rel="icon" href="/favicon.ico" />
@@ -33,11 +32,7 @@ export default function Layout({
       <header className={styles.header}>
         {home ? (
           <>
-            <img
-              src="https://wearecovert.com/wp-content/uploads/2020/04/coid-1-1280x720.jpg"
-              className={`${styles.headerHomeImage} ${utilStyles.borderCircle}`}
-              alt={name}
-            />
+
             <h1 className={utilStyles.heading2Xl}>{name}</h1>
           </>
         ) : (
@@ -69,4 +64,5 @@ export default function Layout({
       )}
     </div>
   );
-}
+
+export default Layout
