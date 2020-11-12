@@ -52,7 +52,7 @@ const HomePage: React.FC = ({ allPostsData }: any) => {
         </p> */}
       </section>
       <section>
-        <Swagger url="openapi/openapi_1_1_0.yaml" />
+        <Swagger url="openapi/openapi_1_1_1.yaml" />
       </section>
       {/* <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
