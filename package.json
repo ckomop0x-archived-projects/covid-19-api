@@ -1,6 +1,6 @@
 {
   "name": "covid-19-api",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Api for COVID-19 data",
   "private": true,
   "scripts": {
